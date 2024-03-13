@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CITRPG</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/css/site.webmanifest">
+    <style>
+        body {
+            background-image: url('/images/5.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=5">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="/css/styleplay.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+    
+    </div>
+
+    <script>
+        // JavaScript code to handle keypress events
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "1") {
+                playerOne();
+            } else if (event.key === "2") {
+                playerTwo();
+            }else if (event.key === "3") {
+                playerthree();
+            }else if (event.key === "4") {
+                playerFour();
+            }else if (event.key === "5") {
+                playerFive();
+            }
+        });
+
+    </script>
+        <script>
+                // JavaScript code to handle keypress events
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "1") {
+                        redirectToNewPage("pickmajor.html");
+                    } else if (event.key === "2") {
+                        redirectToNewPage("pickmajor.html");
+                    }
+                    else if (event.key === "3") {
+                        redirectToNewPage("pickmajor.html");
+                    }
+                    else if (event.key === "4") {
+                        redirectToNewPage("pickmajor.html");
+                    }
+                    else if (event.key === "5") {
+                        redirectToNewPage("pickmajor.html");
+                    }
+                });
+        
+                // JavaScript function to redirect to a new page
+                function redirectToNewPage(pageUrl) {
+                    window.location.href = pageUrl;
+                }
+            </script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/css/site.webmanifest">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=5">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<!--Navbar-->
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html">
+                <img src="/images/logo.jpg" alt="Logo" width="40" height="34" class="d-inline-block align-text-top">
+                Gaming Studio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="howtoplay.html">How to Play</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Support</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <!--Picture explaing how to play-->
+
+    <h1>How To Play</h1>
+    <br>
+    <div class="card text-bg-dark">
+        <img src="/images/2.jpg" class="card-img" alt="How To">
+        <div class="card-img-overlay">
+       
+        </div>
+      </div>
+     
+    <br>
+
+        <!-- Accordion -->
+        <div id="accordion">
+
+          <!-- Section 1 -->
+          <div class="card">
+              <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          1. Game Setup
+                      </button>
+                  </h5>
+              </div>
+  
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                      <p>a. Player Mode</p>
+                      <p>- At the beginning of the game, you have the option to choose between 1 or 2 player mode. Select the mode that best suits your preference.</p>
+  
+                      <p>b. Choose Your Character</p>
+                      <p>- Pick a character that resonates with you from the available options. Each character has its unique traits and abilities.</p>
+  
+                      <p>c. Select Your Major</p>
+                      <p>- Decide on one of the three majors that you want to pursue. Your choice will influence the questions you'll face during the game.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Section 2 -->
+          <div class="card">
+              <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          2. The Challenge
+                      </button>
+                  </h5>
+              </div>
+  
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                      <p>- Brace yourself for an exciting and educational adventure! You will be presented with a series of 12 questions related to the major you selected.</p>
+                      <p>- Each question will test your knowledge and skills in your chosen field. Be prepared for a diverse range of topics and challenges.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Section 3 -->
+          <div class="card">
+              <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          3. Scoring
+                      </button>
+                  </h5>
+              </div>
+  
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                      <p>- Answer each question to the best of your ability. Your score will be based on the accuracy and speed of your responses.</p>
+                      <p>- Strive for a perfect score! If you manage to answer all 12 questions correctly, you'll be rewarded with a special prize at the end of the game.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Section 4 -->
+          <div class="card">
+              <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          4. Winning the Game
+                      </button>
+                  </h5>
+              </div>
+  
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                  <div class="card-body">
+                      <p>- Reach the end of the game with a flawless score to claim your victory. Celebrate your accomplishment and enjoy the satisfaction of mastering your chosen major.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Section 5 -->
+          <div class="card">
+              <div class="card-header" id="headingFive">
+                  <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          5. Prize Redemption
+                      </button>
+                  </h5>
+              </div>
+  
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                  <div class="card-body">
+                      <p>- If you achieve a perfect score, you will be eligible to receive a prize. Follow the on-screen instructions to claim your reward and revel in your success.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Section 6 -->
+          <div class="card">
+              <div class="card-header" id="headingSix">
+                  <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          6. Have Fun!
+                      </button>
+                  </h5>
+              </div>
+  
+              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                  <div class="card-body">
+                      <p>- Most importantly, enjoy the journey! Whether you're playing alone or challenging a friend, the game is designed for both entertainment and education. Good luck, and may the best player win!</p>
+                  </div>
+              </div>
+          </div>
+  
+      </div>
+  
+      <script>
+          // Enable accordion behavior using jQuery
+          $(document).ready(function(){
+              $('#accordion').on('show.bs.collapse', function () {
+                  $('#accordion .show').collapse('hide');
+              });
+          });
+      </script>
+
+    </body>
+
+</html>

@@ -1,11 +1,30 @@
 {
   "name": "midterm-citrpg",
   "version": "1.0.0",
-  "description": "",
+  "description": "Trivia College of Innovation Technology game",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Laci Parker, Hamid Sutton",
+  "license": "ISC",
+  "keywords": [
+    "Triva",
+    "triva",
+    "game",
+    "technology",
+    "Technology",
+    "Game",
+    "cybersecurity",
+    "computer",
+    "science",
+    "computer",
+    "information",
+    "systems"
+  ],
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "express": "^4.18.3",
+    "nextjs": "^0.0.3"
+  }
 }
