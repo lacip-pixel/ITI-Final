@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
 
-app.use(express.static("html"));
+app.use(express.static("."));
 
 app.get("/support",function(req,res){
-    const age=112;
-    res.json(age)
+    
+    const team = ["Hamid", "Laci"];
+
+    res.json(team)
 });
 
 app.listen(3000, () => {
