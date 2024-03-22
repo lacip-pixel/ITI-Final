@@ -1,5 +1,9 @@
 var lives = 3;
 
+// $.get("/support", function(response)){
+//
+// });
+
 // Function to initialize the count of correct answers from local storage
 function initCorrectCount() {
     // Check if the count is already stored in local storage
