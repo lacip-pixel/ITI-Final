@@ -18,7 +18,7 @@ app.get("/support", function(req, res) {
 
 // Route to start the game and return initial number of lives
 app.get("/start-game", function(req, res) {
-    const lives = 5;
+    const lives = 3;
     res.json(lives);
 });
 
