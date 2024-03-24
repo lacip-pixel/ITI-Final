@@ -25,7 +25,7 @@ app.get("/start-game", function(req, res) {
 app.post("/check-answer", (req, res) => {
     const { answer } = req.body;
 
-    // Check the submitted answer
+    // Check the correct answer
     // Example: if answer is correct, decrement lives; otherwise, redirect to game over page
     if (answer === "correct_answer") {
         // Decrement lives or update game state as needed
