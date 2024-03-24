@@ -21,6 +21,7 @@ app.get("/start-game", function(req, res) {
     const lives = 3;
     res.json(lives);
 });
+
 // Route to check submitted answer
 app.post("/check-answer", (req, res) => {
     const { answer } = req.body;
@@ -43,12 +44,9 @@ app.get("/game-over", (req, res) => {
     res.send("Game over!");
 });
 
-
 // Route to handle form submission
 app.post("/submit-comment", (req, res) => {
     const { name, email, comments } = req.body;
-
-
 
     // Process the submitted data (e.g., save to database, send email, etc.)
     // For demonstration purposes, we'll simply log the data
