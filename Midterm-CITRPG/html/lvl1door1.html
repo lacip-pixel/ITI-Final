@@ -71,13 +71,18 @@
     <div class="container">
         <form name="form" method="get" onsubmit="return false;">
             <div class="btn-holder ">
-                <button type="button" name="button1" class="btn btn-success btn-lg" onclick="checkAnswer('password123')">password123</button>
-                <button type="button" name="button2" class="btn btn-success btn-lg" onclick="checkAnswer('m#P52s@ap$V')">m#P52s@ap$V</button>
-                <button type="button" name="button3" class="btn btn-success btn-lg" onclick="checkAnswer('123456')">123456</button>
-                <button type="button" name="button4" class="btn btn-success btn-lg" onclick="checkAnswer('qwerty')">qwerty</button>
+                <button type="button" name="button1" class="btn btn-success btn-lg" value="password123" onclick="checkAnswer(this.value)">password123</button>
+                <button type="button" name="button2" class="btn btn-success btn-lg" value="m#P52s@ap$V" onclick="checkAnswer(this.value)">m#P52s@ap$V</button>
+                <button type="button" name="button3" class="btn btn-success btn-lg" value="123456" onclick="checkAnswer(this.value)">123456</button>
+                <button type="button" name="button4" class="btn btn-success btn-lg" value="qwerty" onclick="checkAnswer(this.value)">qwerty</button>
                 <br />
             </div>
         </form>
+    </div>
+
+    <!-- Display lives remaining -->
+    <div class="container">
+        <p>Lives Remaining: <span id="livesCount">3</span></p>
     </div>
 
     <script>
@@ -99,6 +104,8 @@
                     window.location.href = "gameover.html";
                 }
             }
+            // Display current lives count
+            document.getElementById('livesCount').innerText = lives;
         }
     </script>
 </body>

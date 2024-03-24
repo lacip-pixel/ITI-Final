@@ -79,6 +79,11 @@
         </form>
     </div>
 
+    <!-- Display lives remaining -->
+    <div class="container lives">
+        <p>Lives Remaining: <span id="livesCount">3</span></p>
+    </div>
+
     <script>
         // Initialize lives from sessionStorage or default to 3
         var lives = sessionStorage.getItem('lives') ? parseInt(sessionStorage.getItem('lives')) : 3;
@@ -98,7 +103,14 @@
                     window.location.href = "gameover.html";
                 }
             }
+            // Update the lives count in the HTML
+            document.getElementById('livesCount').innerText = lives;
         }
+
+        // Update the lives count when the page loads
+        window.onload = function() {
+            document.getElementById('livesCount').innerText = lives;
+        };
     </script>
 </body>
 </html>
