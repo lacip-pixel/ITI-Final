@@ -25,30 +25,30 @@
             border-radius: 50px; 
             position: relative; 
         } 
-      
+
         .text-typing p { 
             margin: 0px; 
             white-space: nowrap; 
             clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0); 
             animation: typing 4s steps(22, end) forwards, blink 1s infinite; 
         } 
-      
+
         @keyframes typing { 
             0% { 
                 width: 0% 
             } 
-      
+
             100% { 
                 width: 100% 
             } 
         } 
-      
+
         @keyframes blink { 
             0%, 
             100% { 
                 border-right: 2px solid transparent; 
             } 
-      
+
             50% { 
                 border-right: 2px solid #222; 
             } 
@@ -59,7 +59,6 @@
             left: 30%;
         } 
     </style> 
-    
     <meta name="viewport" content="width=device-width, initial-scale=5">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -72,33 +71,35 @@
     <div class="container">
         <form name="form" method="get" onsubmit="return false;">
             <div class="btn-holder ">
-                <button type="button" name="button1" class="btn btn-success btn-lg" value="password123" onclick="checkAnswer(this.value)">password123</button>
-                <button type="button" name="button2" class="btn btn-success btn-lg" value="m#P52s@ap$V" onclick="checkAnswer(this.value)">m#P52s@ap$V</button>
-                <button type="button" name="button3" class="btn btn-success btn-lg" value="123456" onclick="checkAnswer(this.value)">123456</button>
-                <button type="button" name="button4" class="btn btn-success btn-lg" value="qwerty" onclick="checkAnswer(this.value)">qwerty</button>
+                <button type="button" name="button1" class="btn btn-success btn-lg" onclick="checkAnswer('password123')">password123</button>
+                <button type="button" name="button2" class="btn btn-success btn-lg" onclick="checkAnswer('m#P52s@ap$V')">m#P52s@ap$V</button>
+                <button type="button" name="button3" class="btn btn-success btn-lg" onclick="checkAnswer('123456')">123456</button>
+                <button type="button" name="button4" class="btn btn-success btn-lg" onclick="checkAnswer('qwerty')">qwerty</button>
                 <br />
             </div>
         </form>
     </div>
 
     <script>
-        var lives = 3; // Initialize lives
+        // Initialize lives from sessionStorage or default to 3
+        var lives = sessionStorage.getItem('lives') ? parseInt(sessionStorage.getItem('lives')) : 3;
 
         function checkAnswer(answer) {
-        if (answer === "m#P52s@ap$V") {
-            // Redirect to a new page if the answer is correct
-            window.location.href = "lvl1door2.html";
-        } else {
-            // Decrement lives and show alert
-            lives--;
-            if (lives > 0) {
-                alert("Incorrect answer! You have " + lives + " lives remaining.");
+            if (answer === "m#P52s@ap$V") {
+                // Redirect to a new page if the answer is correct
+                window.location.href = "lvl1door2.html";
             } else {
-                // Redirect to game over page if no lives remaining
-                window.location.href = "gameover.html";
+                // Decrement lives and show alert
+                lives--;
+                sessionStorage.setItem('lives', lives); // Store updated lives value
+                if (lives > 0) {
+                    alert("Incorrect answer! You have " + lives + " lives remaining.");
+                } else {
+                    // Redirect to game over page if no lives remaining
+                    window.location.href = "gameover.html";
+                }
             }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
