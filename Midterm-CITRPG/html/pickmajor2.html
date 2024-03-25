@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CITRPG</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/css/site.webmanifest">
+    <style>
+    /*makes background and image and fits it to the page */
+        body {
+            background-image: url('/images/choose2.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;        }
+        .container{
+            justify-content: space-between;
+            flex-direction: column;
+            position: relative;
+
+            height: 100vh;
+             display: flex;
+        }    
+        /*Formats where buttons are on the page */
+        .container .btn-holder {
+            position: absolute;
+            bottom: 0;
+            left: 38%;
+}
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=5">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="/css/styleplay.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="btn-holder ">
+            <a href="levelselect.html"><button type="button" class="btn btn-primary btn-lg"><img src="/images/dino.png" width="50" height="50" >
+            </button></a>
+            <a href="levelselect.html"><button type="button" class="btn btn-success btn-lg"><img src="/images/cobra.png"width="50" height="50" ></button>
+            </a><a href="levelselect.html"><button type="button" class="btn btn-danger btn-lg"><img src="/images/shark.png" width="50" height="50"></button>
+        </a></div>
+        </div>
+      </div>
+</body>
+
+</html>
