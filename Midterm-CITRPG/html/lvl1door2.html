@@ -89,14 +89,25 @@
     </div>
 
     <script>
+
         // Initialize lives from sessionStorage or default to 3
         var lives = sessionStorage.getItem('lives') ? parseInt(sessionStorage.getItem('lives')) : 3;
+        let correctCount = sessionStorage.getItem("correctCount") ? parseInt(sessionStorage.getItem("correctCount")) : 0;
 
         function score3(answer) {
             if (answer === "HyperText Transfer Protocol Secure") {
                 // Redirect to a new page if the answer is correct
-                window.location.href = "lvl1door3.html";
-            } else {
+                correctCount++; // Increment correct count
+                sessionStorage.setItem("correctCount", correctCount); // Update correct count in session storage
+                if (correctCount === 3) {
+                    alert("Congratulations! You've answered 3 questions correctly. Access granted to the next level!");
+                    window.location.href = "/html/level2.html"; // Redirect to the next level                    
+                    sendCorrectCountToBackend(); // Send correct count to backend
+                } 
+                else {
+                    window.location.href = "/html/level1.html"; // Redirect to the next question
+                }}
+                else {
                 // Decrement lives and show alert
                 lives--;
                 sessionStorage.setItem('lives', lives); // Store updated lives value
@@ -104,7 +115,7 @@
                     alert("Incorrect answer! You have " + lives + " lives remaining.");
                 } else {
                     // Redirect to game over page if no lives remaining
-                    window.location.href = "gameover.html";
+                    window.location.href = "/html.gameover.html";
                 }
             }
             // Update the lives count in the HTML

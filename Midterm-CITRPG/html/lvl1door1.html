@@ -96,19 +96,42 @@
 
     <script>
         var lives = sessionStorage.getItem('lives') ? parseInt(sessionStorage.getItem('lives')) : 3;
-
+        let correctCount = sessionStorage.getItem("correctCount") ? parseInt(sessionStorage.getItem("correctCount")) : 0;
         function checkAnswer(answer) {
             if (answer === "m#P52s@ap$V") {
-                window.location.href = "lvl1door2.html";
+                correctCount++; // Increment correct count
+                sessionStorage.setItem("correctCount", correctCount); // Update correct count in session storage
+                if (correctCount === 3) {
+                    alert("Congratulations! You've answered 3 questions correctly. Access granted to the next level!");
+                    window.location.href = "/html/level2.html"; // Redirect to the next level                
+ sendCorrectCountToBackend(); // Send correct count to backend
+             } else {
+                    window.location.href = "/html/level1.html"; // Redirect to the next question
+                }
             } else {
                 lives--;
                 sessionStorage.setItem('lives', lives);
                 if (lives > 0) {
                     alert("Incorrect answer! You have " + lives + " lives remaining.");
                 } else {
-                    window.location.href = "gameover.html";
+                    window.location.href = "/html/gameover.html";
                 }
             }
+            function sendCorrectCountToBackend() {
+            let correctCountToSend = parseInt(sessionStorage.getItem("correctCount"));
+            fetch('/update-correct-count', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ correctCount: correctCountToSend })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle response from the backend if needed
+            })
+            .catch(error => console.error('Error:', error));
+        }
             document.getElementById('livesCount').innerText = lives;
         }
     </script>
