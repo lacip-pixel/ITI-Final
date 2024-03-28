@@ -99,8 +99,8 @@
                 // Redirect to a new page if the answer is correct
                 correctCount++; // Increment correct count
                 sessionStorage.setItem("correctCount", correctCount); // Update correct count in session storage
-                if (correctCount === 3) {
-                    alert("Congratulations! You've answered 3 questions correctly. Access granted to the next level!");
+                if (correctCount === 6) {
+                    alert("Congratulations! Access granted to the next level!");
                     window.location.href = "/html/level3.html"; // Redirect to the next level                    
                     sendCorrectCountToBackend(); // Send correct count to backend
                 } 

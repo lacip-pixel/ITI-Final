@@ -11,7 +11,7 @@
     <link rel="manifest" href="/css/site.webmanifest">
     <style>
         body {
-            background-image: url('/images/lvl2_extra.jpg');
+            background-image: url('/images/lvl4_extra1.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
@@ -22,7 +22,7 @@
         .text-typing { 
             padding: 20px 30px; 
             background: #f5f5f5; 
-            font-size: 25px; 
+            font-size: 30px; 
             font-family: monospace; 
             border-radius: 50px; 
             position: relative; 
@@ -70,14 +70,12 @@
 </head>
 <body>
     <div class="text-typing"> 
-        <p>You have reached Professor Thiago! Congrats keep going! You've got this!
-        </p>
+        <p>Last Level! Good Luck!</p>
     </div>
     <div class="container">
         <form name="form" method="get" onsubmit="return false;">
             <div class="btn-holder ">
                 <button type="submit" name="button1" class="btn btn-success btn-lg" onclick="score3('Bye Bye')">Return</button>
-        
             </div>
         </form>
     </div>
@@ -95,10 +93,9 @@
 
         function score3(answer) {
             if (answer === "Bye Bye") {
-                // Redirect to a new page if the answer is correct
-                
-                    window.location.href = "/html/level2.html"; // Redirect to the next level                    
-            }
+               
+                    window.location.href = "/html/level4.html"; // Redirect to the next level                    
+                 }
                 else {
                 // Decrement lives and show alert
                 lives--;

@@ -11,7 +11,7 @@
     <link rel="manifest" href="/css/site.webmanifest">
     <style>
         body {
-            background-image: url('/images/lvl2_extra.jpg');
+            background-image: url('/images/lvl3_3.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
@@ -22,7 +22,7 @@
         .text-typing { 
             padding: 20px 30px; 
             background: #f5f5f5; 
-            font-size: 25px; 
+            font-size: 23px; 
             font-family: monospace; 
             border-radius: 50px; 
             position: relative; 
@@ -70,14 +70,15 @@
 </head>
 <body>
     <div class="text-typing"> 
-        <p>You have reached Professor Thiago! Congrats keep going! You've got this!
-        </p>
+        <p>Which cryptographic concept ensures that a message has not been altered during transmission? </p>
     </div>
     <div class="container">
         <form name="form" method="get" onsubmit="return false;">
             <div class="btn-holder ">
-                <button type="submit" name="button1" class="btn btn-success btn-lg" onclick="score3('Bye Bye')">Return</button>
-        
+                <button type="submit" name="button1" class="btn btn-success btn-lg" onclick="score3('Symmetric encryption')">Symmetric encryption</button>
+                <button type="submit" name="button2" class="btn btn-success btn-lg" onclick="score3('Hash function')">Hash function</button>
+                <button type="submit" name="button3" class="btn btn-success btn-lg" onclick="score3('Digital signature')">Digital signature</button>
+                <button type="submit" name="button4" class="btn btn-success btn-lg" onclick="score3('Public key infrastructure')">Public key infrastructure</button><br />
             </div>
         </form>
     </div>
@@ -94,11 +95,18 @@
         let correctCount = sessionStorage.getItem("correctCount") ? parseInt(sessionStorage.getItem("correctCount")) : 0;
 
         function score3(answer) {
-            if (answer === "Bye Bye") {
+            if (answer === "Hash function") {
                 // Redirect to a new page if the answer is correct
-                
-                    window.location.href = "/html/level2.html"; // Redirect to the next level                    
-            }
+                correctCount++; // Increment correct count
+                sessionStorage.setItem("correctCount", correctCount); // Update correct count in session storage
+                if (correctCount === 9) {
+                    alert("Congratulations! Access granted to the next level!");
+                    window.location.href = "/html/level4.html"; // Redirect to the next level                    
+                    sendCorrectCountToBackend(); // Send correct count to backend
+                } 
+                else {
+                    window.location.href = "/html/level3.html"; // Redirect to the next question
+                }}
                 else {
                 // Decrement lives and show alert
                 lives--;
