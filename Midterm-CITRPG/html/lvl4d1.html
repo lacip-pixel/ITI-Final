@@ -100,7 +100,6 @@
                 correctCount++; // Increment correct count
                 sessionStorage.setItem("correctCount", correctCount); // Update correct count in session storage
                 if (correctCount === 12) {
-                    alert("Congratulations! Access granted to the next level!");
                     window.location.href = "/html/win.html"; // Redirect to the next level                    
                     sendCorrectCountToBackend(); // Send correct count to backend
                 } 

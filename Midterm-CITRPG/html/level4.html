@@ -14,6 +14,51 @@
             background-attachment: fixed;
             background-size: 100% 100%;
         }
+        
+      
+        .text-typing { 
+                padding: 20px 30px;
+            background: #f5f5f5;
+            font-size: 30px;
+            font-family: monospace;
+            border-radius: 50px;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; /* Ensure text appears above the image map */
+            } 
+      
+            .text-typing p { 
+                margin: 0px; 
+                white-space: nowrap; 
+                clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0); 
+                animation:  
+    typing 4s steps(22, end) forwards, blink 1s infinite; 
+            } 
+      
+            @keyframes typing { 
+                0% { 
+                    width: 0% 
+                } 
+      
+                100% { 
+                    width: 100% 
+                } 
+            } 
+      
+            @keyframes blink { 
+      
+                0%, 
+                100% { 
+                    border-right: 2px solid transparent; 
+                } 
+      
+                50% { 
+                    border-right: 2px solid #222; 
+                } 
+            } 
+    
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=5">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +72,9 @@
               crossorigin="anonymous"> 
 </head>
 <body>
+    <div class="text-typing"> 
+        <p>Welcome Senior, you now have 6 doors in front of you.</p><p> You are almost there! Get ready to master Cyber Security.</p>
+    </div>
     <map name="image_map">
         <area target="" alt="" title="" href="/html/lvl4d1.html" coords="1,307,252,1027" shape="rect">
         <area target="" alt="" title="" href="/html/lvl4d2.html" coords="139,213,287,687" shape="0">
