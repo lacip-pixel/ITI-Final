@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
   <title>GAME OVER</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
   <link rel="manifest" href="/css/site.webmanifest">
-    <style>
-      /*Makes a video the background for the webpage*/
-#myVideo {
-  position: fixed;
- 
-  width: 100%;
-  height: 100%;
-}
-.reset-btn, .quit-btn {
+  <style>
+    /*Makes a video the background for the webpage*/
+    #myVideo {
       position: fixed;
-      top:20px;
+      width: 100%;
+      height: 100%;
+    }
+    .reset-btn, .quit-btn {
+      position: fixed;
+      top: 20px;
       padding: 20px 40px; /* Adjust padding for button size */
       font-size: 30px; /* Adjust font size for button text */
       color: #fff;
@@ -31,32 +31,41 @@
       background-color: #333;
       right: 55%;
     }
-
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=5">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-    <body style="background-color: black;">
-<!--Makes the video play like a gif on repeat-->
-    <video autoplay muted loop id="myVideo">
-        <source src="/images/gameover.mp4" type="video/mp4">
-      </video>
-      <button class="reset-btn" onclick="resetGame()">Reset</button>
-      <button class="quit-btn" onclick="quitGame()">Quit</button>
-
-      <script>
-        function resetGame() {
-          // Reset lives to 3
-          sessionStorage.setItem('lives', 3);
-          // Reset correct count to 0
-          sessionStorage.setItem('correctCount', 0);
-          // Redirect to home page
-          window.location.href = '/html/startscreen.html';
+    .reset-btn:hover, .quit-btn:hover {
+            background-color: #0056b3;
         }
-        function quitGame() {
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=5">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body style="background-color: black;">
+<!--Makes the video play like a gif on repeat-->
+<video autoplay muted loop id="myVideo">
+  <source src="/images/gameover.mp4" type="video/mp4">
+</video>
+<button class="reset-btn">Reset</button>
+<button class="quit-btn">Quit</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Reset button functionality
+    $('.reset-btn').on('click', function() {
+      // Reset lives to 3
+      sessionStorage.setItem('lives', 3);
+      // Reset correct count to 0
+      sessionStorage.setItem('correctCount', 0);
+      // Redirect to home page
+      window.location.href = '/html/startscreen.html';
+    });
+
+    // Quit button functionality
+    $('.quit-btn').on('click', function() {
       // Redirect to home page
       window.location.href = '/html/home.html';
-    }
+    });
+  });
 </script>
-</body></html>
+</body>
+</html>

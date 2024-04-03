@@ -62,6 +62,15 @@
             left: 30%;
             font-size: 20px;
         }
+        .back-btn {
+      background-color: lightblue;
+      left: 1%;
+      position: fixed;
+      top: 20px;
+      font-size: 20px; /* Adjust font size for button text */
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;}
     </style> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -76,8 +85,12 @@
             <p>Lives Remaining: <span id="livesCount">3</span></p>
         </div>
     </div>
+    <button class="back-btn"><i class="bi bi-arrow-left"></i> </button>
 
     <script>
+         document.querySelector('.back-btn').addEventListener('click', function() {
+            window.history.back();
+        });
         fetch('/quiz_questions/10')
             .then(response => response.json())
             .then(questionData => {
@@ -112,7 +125,7 @@
                 correctCount++;
                 sessionStorage.setItem("correctCount", correctCount);
                 if (correctCount === 12) {
-                    alert("Congratulations! You've answered 3 questions correctly. Access granted to the next level!");
+                    alert("Congratulations! Access granted to the next level!");
                     window.location.href = "/html/win.html";
                     sendCorrectCountToBackend();
                 } else {
