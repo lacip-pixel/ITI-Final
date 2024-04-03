@@ -69,65 +69,82 @@
     <link href="/css/styleplay.css" rel="stylesheet">
 </head>
 <body>
-    <div class="text-typing"> 
-        <p>What is the primary purpose of a firewall in network security?        </p>
-    </div>
     <div class="container">
-        <form name="form" method="get" onsubmit="return false;">
-            <div class="btn-holder ">
-                <button type="submit" name="button1" class="btn btn-success btn-lg" onclick="score3('Encrypting data transmissions')">Encrypting data transmissions
-                </button>
-                <button type="submit" name="button2" class="btn btn-success btn-lg" onclick="score3('Monitoring and controlling incoming and outgoing network traffic')">Monitoring and controlling incoming and outgoing network traffic
-                </button>
-                <button type="submit" name="button3" class="btn btn-success btn-lg" onclick="score3('Managing user authentication')">Managing user authentication</button>
-                <button type="submit" name="button4" class="btn btn-success btn-lg" onclick="score3('Detecting malware on a computer')">Detecting malware on a computer</button><br />
-            </div>
-        </form>
-    </div>
-
-    <!-- Display lives remaining -->
-    <div class="container lives">
-        <p>Lives Remaining: <span id="livesCount">3</span></p>
+        <div id="questionText" class="text-typing"></div>
+        <div id="optionsHolder" class="btn-holder"></div>
+        <div class="container">
+            <p>Lives Remaining: <span id="livesCount">3</span></p>
+        </div>
     </div>
 
     <script>
+        fetch('/quiz_questions/4')
+            .then(response => response.json())
+            .then(questionData => {
 
-        // Initialize lives from sessionStorage or default to 3
-        var lives = sessionStorage.getItem('lives') ? parseInt(sessionStorage.getItem('lives')) : 3;
+                console.log(questionData)
+                
+                const questionTextElement = document.getElementById('questionText');
+                questionTextElement.textContent = questionData.questionText;
+
+                const optionsHolder = document.getElementById('optionsHolder');
+                questionData.options.forEach((option, i) => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'btn btn-success btn-lg';
+                    button.textContent = option;
+                    button.addEventListener('click', () => checkAnswer(option, i, questionData.correctOption));
+                    optionsHolder.appendChild(button);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching question data:', error);
+            }); 
+
+        let lives = sessionStorage.getItem('lives') ? parseInt(sessionStorage.getItem('lives')) : 3;
         let correctCount = sessionStorage.getItem("correctCount") ? parseInt(sessionStorage.getItem("correctCount")) : 0;
 
-        function score3(answer) {
-            if (answer === "Monitoring and controlling incoming and outgoing network traffic") {
-                // Redirect to a new page if the answer is correct
-                correctCount++; // Increment correct count
-                sessionStorage.setItem("correctCount", correctCount); // Update correct count in session storage
+        function checkAnswer(answer, answerIndex, correctOption) {
+
+            console.log(answerIndex, correctOption);
+
+            if (answerIndex === correctOption-1) {
+                correctCount++;
+                sessionStorage.setItem("correctCount", correctCount);
                 if (correctCount === 6) {
-                    alert("Congratulations! Access granted to the next level!");
-                    window.location.href = "/html/level3.html"; // Redirect to the next level                    
-                    sendCorrectCountToBackend(); // Send correct count to backend
-                } 
-                else {
-                    window.location.href = "/html/level2.html"; // Redirect to the next question
-                }}
-                else {
-                // Decrement lives and show alert
+                    alert("Congratulations! You've answered 3 questions correctly. Access granted to the next level!");
+                    window.location.href = "/html/level3.html";
+                    sendCorrectCountToBackend();
+                } else {
+                    window.location.href = "/html/level2.html";
+                }
+            } else {
                 lives--;
-                sessionStorage.setItem('lives', lives); // Store updated lives value
+                sessionStorage.setItem('lives', lives);
                 if (lives > 0) {
                     alert("Incorrect answer! You have " + lives + " lives remaining.");
                 } else {
-                    // Redirect to game over page if no lives remaining
                     window.location.href = "/html/gameover.html";
                 }
             }
-            // Update the lives count in the HTML
+
+            function sendCorrectCountToBackend() {
+                let correctCountToSend = parseInt(sessionStorage.getItem("correctCount"));
+                fetch('/update-correct-count', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ correctCount: correctCountToSend })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle response from the backend if needed
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
             document.getElementById('livesCount').innerText = lives;
         }
-
-        // Update the lives count when the page loads
-        window.onload = function() {
-            document.getElementById('livesCount').innerText = lives;
-        };
     </script>
 </body>
 </html>
