@@ -5,14 +5,23 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
- const pool = new Pool({
-     user: 'postgres',
-     host: 'localhost',
-     database: 'postgres',
-     password: 'postgres',
-     port: 5432,
-  });
-  
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'postgres',
+    password: 'postgres',
+    port: 5432,
+ })
+
+ 
+
+app.get("/", (req, res) => {
+    res.redirect('/html/home.html');
+ });
+
+ app.use(express.static('../Public'))
+
+
   app.use(bodyParser.json());
 
   app.get('/quiz_questions', (req, res) => {
@@ -309,7 +318,23 @@ app.post("/submit-comment", (req, res) => {
     res.send("Comment submitted successfully!");
 });
 
+// Route to handle user signup
+app.post('/signup', async (req, res) => {
+    const { username, email, password } = req.body;
+
+    try {
+        // Here you can perform validation, hash passwords, and save user data to the database
+        // For demonstration, we'll just log the received data
+        console.log('Received signup data:', { username, email, password });
+
+        res.status(200).json({ success: true, message: 'User signed up successfully' });
+    } catch (error) {
+        console.error('Error processing signup:', error);
+        res.status(500).json({ error: 'Error processing signup' });
+    }
+});
+
 // Start the server
-app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
 });
