@@ -1,6 +1,7 @@
 const express = require("express");
 const Pool = require('pg').Pool
 const bodyParser = require("body-parser");
+const nodemailer = require('nodemailer');
 
 const app = express();
 const port = 3000;
@@ -333,6 +334,46 @@ app.post('/signup', async (req, res) => {
         res.status(500).json({ error: 'Error processing signup' });
     }
 });
+
+// Middleware to parse incoming request bodies
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Route to handle form submission
+app.post('/submit-comment', (req, res) => {
+    const { name, email, comments } = req.body;
+
+    // Basic validation
+    if (!name || !email || !comments) {
+        return res.status(400).json({ error: 'All fields are required.' });
+    }
+
+    // Send email with the form data
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'your_email@gmail.com',
+            pass: 'your_password'
+        }
+    });
+
+    const mailOptions = {
+        from: 'your_email@gmail.com',
+        to: 'support@example.com',
+        subject: 'New Support Comment',
+        text: `Name: ${name}\nEmail: ${email}\nComment: ${comments}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error:', error);
+            return res.status(500).json({ error: 'An error occurred while sending the email.' });
+        }
+        console.log('Email sent:', info.response);
+        res.status(200).json({ message: 'Comment submitted successfully.' });
+    });
+});
+
 
 // Start the server
 app.listen(3000, () => {
